@@ -4,6 +4,7 @@ import os
 from typing import Dict, List, TYPE_CHECKING
 
 import yaml
+
 try:
     from bmtools.agent.singletool import import_all_apis, load_single_tools
 except:
@@ -32,6 +33,7 @@ def load_llm(llm_config: Dict):
 def load_memory(memory_config: Dict):
     memory_type = memory_config.pop("memory_type", "chat_history")
     return memory_registry.build(memory_type, **memory_config)
+
 
 def load_memory_manipulator(memory_manipulator_config: Dict):
     memory_manipulator_type = memory_manipulator_config.pop("memory_manipulator_type", "basic")
@@ -68,14 +70,14 @@ def prepare_task_config(task):
         all_tasks = []
         for task in os.listdir(all_task_dir):
             if (
-                os.path.isdir(os.path.join(all_task_dir, task))
-                and task != "__pycache__"
+                    os.path.isdir(os.path.join(all_task_dir, task))
+                    and task != "__pycache__"
             ):
                 all_tasks.append(task)
                 for subtask in os.listdir(os.path.join(all_task_dir, task)):
                     if (
-                        os.path.isdir(os.path.join(all_task_dir, task, subtask))
-                        and subtask != "__pycache__"
+                            os.path.isdir(os.path.join(all_task_dir, task, subtask))
+                            and subtask != "__pycache__"
                     ):
                         all_tasks.append(f"{task}/{subtask}")
         raise ValueError(f"Task {task} not found. Available tasks: {all_tasks}")

@@ -6,15 +6,12 @@ from agentverse.message import Message
 from agentverse.llms import BaseLLM
 from agentverse.llms.openai import get_embedding, OpenAIChat
 
-
 from . import memory_registry
 from .base import BaseMemory
 
 
-
 @memory_registry.register("vectorstore")
 class VectorStoreMemory(BaseMemory):
-
     """
 
     The main difference of this class with chat_history is that this class treat memory as a dict
@@ -36,7 +33,7 @@ class VectorStoreMemory(BaseMemory):
     messages: List[Message] = Field(default=[])
     embedding2memory: dict = {}
     memory2embedding: dict = {}
-    llm: BaseLLM = OpenAIChat(model="gpt-4")
+    llm: BaseLLM = OpenAIChat(model="gpt-3.5-turbo")
 
     def add_message(self, messages: List[Message]) -> None:
         for message in messages:
@@ -60,4 +57,3 @@ class VectorStoreMemory(BaseMemory):
 
     def reset(self) -> None:
         self.messages = []
-

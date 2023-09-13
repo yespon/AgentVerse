@@ -209,4 +209,11 @@ class ReflectionAgent(BaseAgent):
         self.memory_manipulator.agent = self
         self.memory_manipulator.memory = self.memory
 
+    # def reset(self) -> None:
+    #     """Reset the agent"""
+    #     # self.environment = environment
+    #     self.memory.reset()
+    #     self.memory_manipulator.agent = self
+    #     self.memory_manipulator.memory = self.memory
+
 

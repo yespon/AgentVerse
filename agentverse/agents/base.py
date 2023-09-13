@@ -10,6 +10,7 @@ from agentverse.message import Message
 from agentverse.parser import OutputParser
 from agentverse.memory_manipulator import BaseMemoryManipulator
 
+
 class BaseAgent(BaseModel):
     name: str
     llm: BaseLLM

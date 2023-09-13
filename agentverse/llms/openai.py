@@ -20,6 +20,8 @@ except ImportError:
     is_openai_available = False
     logging.warning("openai package is not installed")
 else:
+    if os.environ.get("OPENAI_API_BASE"):
+        openai.api_base = os.environ.get("OPENAI_API_BASE")
     openai.api_key = os.environ.get("OPENAI_API_KEY")
     openai.proxy = os.environ.get("http_proxy")
     if openai.proxy is None:
@@ -83,7 +85,7 @@ class OpenAICompletion(BaseCompletionModel):
 
 
 @llm_registry.register("gpt-3.5-turbo")
-@llm_registry.register("gpt-4")
+# @llm_registry.register("gpt-4")
 class OpenAIChat(BaseChatModel):
     args: OpenAIChatArgs = Field(default_factory=OpenAIChatArgs)
 

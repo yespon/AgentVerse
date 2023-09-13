@@ -16,6 +16,7 @@ from .base import BaseEnvironment
 
 from pydantic import validator
 
+
 @EnvironmentRegistry.register("reflection")
 class ReflectionEnvironment(BaseEnvironment):
     """
@@ -40,6 +41,7 @@ class ReflectionEnvironment(BaseEnvironment):
     rule_params: Dict = {}
     current_time: dt = dt.now()
     time_delta: int = 120
+
     #
 
     # @validator("time_delta")
@@ -110,6 +112,7 @@ class ReflectionEnvironment(BaseEnvironment):
         BaseAgent.update_forward_refs()
         for agent in self.agents:
             agent.reset(environment=self)
+            # agent.reset()
 
     def is_done(self) -> bool:
         """Check if the environment is done"""
