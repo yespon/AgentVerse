@@ -80,8 +80,8 @@ agents:
       memory_manipulator_type: reflection
     prompt_template: *prompt
     llm:
-      model: "gpt-3.5-turbo"
-      llm_type: gpt-3.5-turbo
+      model: "gpt-4"
+      llm_type: gpt-4
       temperature: 0.3
       max_tokens: 128
     current_time: "2023-04-01 09:30:00"
@@ -116,8 +116,8 @@ agents:
       memory_manipulator_type: reflection
     prompt_template: *prompt
     llm:
-      model: "gpt-3.5-turbo"
-      llm_type: gpt-3.5-turbo
+      model: "gpt-4"
+      llm_type: gpt-4
       temperature: 0.3
       max_tokens: 128
     current_time: "2023-04-01 09:30:00"
